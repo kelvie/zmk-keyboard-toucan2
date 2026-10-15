@@ -7,6 +7,10 @@
 
 //#define TOUCAN_WIN_MODE
 
+// niri (Wayland): Super+Page_Up/Down switch workspaces, Super+H/L switch
+// columns in the focused workspace.
+#define TOUCAN_NIRI_MODE
+
 // Layers the pad keys off. The keymap is preprocessed on its own, so layer
 // names are not visible from here; these are the indices in
 // config/toucan.keymap (BASE 0, NAV 1, SYM 2, ADJ 3, MOU 4). A keymap that
@@ -14,13 +18,13 @@
 // differently (NAV 4, MOUSE 5), and with the wrong index the pad moves the
 // cursor while the mouse-layer clicks and NAV scrolling silently do nothing.
 #ifndef TOUCAN_LAYER_NAV
-#define TOUCAN_LAYER_NAV   1
+#define TOUCAN_LAYER_NAV   4
 #endif
 #ifndef TOUCAN_LAYER_SYM
-#define TOUCAN_LAYER_SYM   2
+#define TOUCAN_LAYER_SYM   8
 #endif
 #ifndef TOUCAN_LAYER_MOUSE
-#define TOUCAN_LAYER_MOUSE 4
+#define TOUCAN_LAYER_MOUSE 5
 #endif
 
 / {
@@ -118,7 +122,7 @@
             #input-processor-cells = <0>;
             event-code = <INPUT_REL_MISC>;
             sensitivity = <10>;
-#ifdef TOUCAN_WIN_MODE
+#if defined(TOUCAN_WIN_MODE) || defined(TOUCAN_NIRI_MODE)
             bindings = <&kp LC(MINUS)>, <&kp LC(EQUAL)>;
 #else
             bindings = <&kp LG(MINUS)>, <&kp LG(EQUAL)>;
@@ -138,7 +142,9 @@
             compatible = "zmk,input-processor-behaviors";
             #input-processor-cells = <0>;
             codes = <INPUT_BTN_NORTH INPUT_BTN_EAST INPUT_BTN_SOUTH INPUT_BTN_WEST>;
-#ifdef TOUCAN_WIN_MODE
+#if defined(TOUCAN_NIRI_MODE)
+            bindings = <&kp LG(PAGE_UP)>, <&kp LG(L)>, <&kp LG(PAGE_DOWN)>, <&kp LG(H)>;
+#elif defined(TOUCAN_WIN_MODE)
             bindings = <&kp LG(TAB)>, <&kp LG(RIGHT)>, <&kp LG(D)>, <&kp LG(LEFT)>;
 #else
             bindings = <&kp LC(LG(UP))>, <&kp LC(LG(RIGHT))>, <&kp LC(LG(DOWN))>, <&kp LC(LG(LEFT))>;
