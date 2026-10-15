@@ -66,6 +66,12 @@
         filter-settings=<0x0B>;
         hold-time = <500>;
 
+        // A tap has to land inside both windows to count as a click. With the
+        // driver's defaults a normal tap on a pad this size often registers as
+        // a tiny drag instead, so clicks go missing.
+        tap-time = <400>;       // ms
+        tap-distance = <40>;    // units of movement allowed during a tap
+
         zoom;
         scroll;
         two-finger-tap;
