@@ -7,6 +7,22 @@
 
 //#define TOUCAN_WIN_MODE
 
+// Layers the pad keys off. The keymap is preprocessed on its own, so layer
+// names are not visible from here; these are the indices in
+// config/toucan.keymap (BASE 0, NAV 1, SYM 2, ADJ 3, MOU 4). A keymap that
+// includes this file can override them - miryoku numbers its layers
+// differently (NAV 4, MOUSE 5), and with the wrong index the pad moves the
+// cursor while the mouse-layer clicks and NAV scrolling silently do nothing.
+#ifndef TOUCAN_LAYER_NAV
+#define TOUCAN_LAYER_NAV   1
+#endif
+#ifndef TOUCAN_LAYER_SYM
+#define TOUCAN_LAYER_SYM   2
+#endif
+#ifndef TOUCAN_LAYER_MOUSE
+#define TOUCAN_LAYER_MOUSE 4
+#endif
+
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -115,7 +131,7 @@
             #input-processor-cells = <0>;
 
             codes = <INPUT_BTN_TOUCH>;      // watch for the 'touch' pseudo button
-            bindings  = <&mo 4>;            // Activate Layer 4 while held &mo 4
+            bindings = <&mo TOUCAN_LAYER_MOUSE>;   // mouse buttons on the thumb keys while a finger is down
         };
 
         swipe_button_mapper: swipe_button_mapper {
@@ -147,7 +163,7 @@
         device = <&trackpad_split>;
         input-processors = <&zip_xy_scaler 100 100>, <&zip_scroll_scaler 1 20>, <&zip_zoom_mapper>, <&is_touching_processor>, <&swipe_button_mapper>;
         scroller {
-            layers = <1 2>;
+            layers = <TOUCAN_LAYER_NAV TOUCAN_LAYER_SYM>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_scaler 1 20
