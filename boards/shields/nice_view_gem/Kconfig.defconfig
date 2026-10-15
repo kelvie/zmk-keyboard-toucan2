@@ -5,6 +5,28 @@ config TOUCAN_STATUS_SCREEN
     default 2
     range 0 2
 
+config ZMK_BT_PROFILE_0_NAME
+    string "Label drawn on the display for BT profile 1"
+    default ""
+    help
+      Shown next to the profile dots. Empty = no label.
+
+config ZMK_BT_PROFILE_1_NAME
+    string "Label drawn on the display for BT profile 2"
+    default ""
+
+config ZMK_BT_PROFILE_2_NAME
+    string "Label drawn on the display for BT profile 3"
+    default ""
+
+config ZMK_BT_PROFILE_3_NAME
+    string "Label drawn on the display for BT profile 4"
+    default ""
+
+config ZMK_BT_PROFILE_4_NAME
+    string "Label drawn on the display for BT profile 5"
+    default ""
+
 config LV_Z_VDB_SIZE
     default 100
 

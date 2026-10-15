@@ -9,6 +9,23 @@ void to_uppercase(char *str) {
     }
 }
 
+/* Labels for the bluetooth profiles, set with CONFIG_ZMK_BT_PROFILE_<n>_NAME.
+ * Empty (the default) means "draw nothing", i.e. plain BT 1..5 dots. */
+static const char *const bt_profile_names[] = {
+    CONFIG_ZMK_BT_PROFILE_0_NAME,
+    CONFIG_ZMK_BT_PROFILE_1_NAME,
+    CONFIG_ZMK_BT_PROFILE_2_NAME,
+    CONFIG_ZMK_BT_PROFILE_3_NAME,
+    CONFIG_ZMK_BT_PROFILE_4_NAME,
+};
+
+const char *bt_profile_name(int idx) {
+    if (idx < 0 || idx >= (int)ARRAY_SIZE(bt_profile_names)) {
+        return "";
+    }
+    return bt_profile_names[idx];
+}
+
 void fill_background(lv_obj_t *canvas) {
     lv_draw_rect_dsc_t rect_black_dsc;
     rect_black_dsc.bg_color = lv_color_white();  // set background color to white
