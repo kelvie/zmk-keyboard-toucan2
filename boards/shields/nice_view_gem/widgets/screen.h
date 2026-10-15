@@ -7,9 +7,11 @@
 struct zmk_widget_screen {
     sys_snode_t node;
     lv_obj_t *obj;
-    lv_color_t cbuf[SCREEN_WIDTH * SCREEN_HEIGHT];
-    lv_color_t cbuf2[SCREEN_WIDTH * SCREEN_HEIGHT];
-    lv_color_t cbuf3[SCREEN_WIDTH * SCREEN_HEIGHT];
+    /* The panel is 1 bpp (CONFIG_LV_COLOR_DEPTH=1), so the canvas is the native
+     * format: 1 bit per pixel. Only one buffer: lv_canvas_set_buffer() binds cbuf
+     * to the canvas and every draw goes through the canvas object, so the extra
+     * buffers this used to carry (97 KB) were never read. */
+    LV_ATTRIBUTE_MEM_ALIGN uint8_t cbuf[SCREEN_STRIDE * SCREEN_HEIGHT];
     struct status_state state;
 };
 

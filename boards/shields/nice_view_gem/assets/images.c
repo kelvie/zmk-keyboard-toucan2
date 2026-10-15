@@ -35,11 +35,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_GRID uint
 };
 
 const lv_img_dsc_t grid = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 67,
     .header.h = 33,
+    .header.stride = ((67 + 7) / 8),
     .data_size = 305,
     .data = grid_map,
 };
@@ -62,11 +62,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_PROFILES 
 };
 
 const lv_img_dsc_t profiles = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 48,
     .header.h = 8,
+    .header.stride = ((48 + 7) / 8),
     .data_size = 56,
     .data = profiles_map,
 };
@@ -99,11 +99,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_L_BATTERY
 };
 
 const lv_img_dsc_t l_battery_100 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = l_battery_100_map,
 };
@@ -135,11 +135,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_L_BATTERY
 };
 
 const lv_img_dsc_t l_battery_90 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = l_battery_90_map,
 };
@@ -171,11 +171,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_L_BATTERY
 };
 
 const lv_img_dsc_t l_battery_75 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = l_battery_75_map,
 };
@@ -207,11 +207,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_L_BATTERY
 };
 
 const lv_img_dsc_t l_battery_50 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = l_battery_50_map,
 };
@@ -243,11 +243,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_L_BATTERY
 };
 
 const lv_img_dsc_t l_battery_25 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = l_battery_25_map,
 };
@@ -279,11 +279,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_L_BATTERY
 };
 
 const lv_img_dsc_t l_battery_10 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = l_battery_10_map,
 };
@@ -317,11 +317,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_R_BATTERY
 };
 
 const lv_img_dsc_t r_battery_100 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = r_battery_100_map,
 };
@@ -353,11 +353,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_R_BATTERY
 };
 
 const lv_img_dsc_t r_battery_90 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = r_battery_90_map,
 };
@@ -389,11 +389,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_R_BATTERY
 };
 
 const lv_img_dsc_t r_battery_75 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = r_battery_75_map,
 };
@@ -425,11 +425,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_R_BATTERY
 };
 
 const lv_img_dsc_t r_battery_50 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = r_battery_50_map,
 };
@@ -461,11 +461,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_R_BATTERY
 };
 
 const lv_img_dsc_t r_battery_25 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = r_battery_25_map,
 };
@@ -497,11 +497,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_R_BATTERY
 };
 
 const lv_img_dsc_t r_battery_10 = {
-    .header.cf = LV_IMG_CF_INDEXED_1BIT,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    .header.magic = LV_IMAGE_HEADER_MAGIC,
+    .header.cf = LV_COLOR_FORMAT_I1,
     .header.w = 60,
     .header.h = 17,
+    .header.stride = ((60 + 7) / 8),
     .data_size = 144,
     .data = r_battery_10_map,
 };
@@ -580,11 +580,11 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_TOUCAN_LO
 };
 
 const lv_img_dsc_t toucan_logo = {
-  .header.cf = LV_IMG_CF_INDEXED_1BIT,
-  .header.always_zero = 0,
-  .header.reserved = 0,
+  .header.magic = LV_IMAGE_HEADER_MAGIC,
+  .header.cf = LV_COLOR_FORMAT_I1,
   .header.w = 64,
   .header.h = 64,
+  .header.stride = ((64 + 7) / 8),
   .data_size = 512,
   .data = toucan_logo_map,
 };

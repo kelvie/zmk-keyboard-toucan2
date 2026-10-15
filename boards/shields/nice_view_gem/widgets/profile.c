@@ -5,10 +5,10 @@
 LV_IMG_DECLARE(profiles);
 
 static void draw_inactive_profiles(lv_obj_t *canvas, const struct status_state *state) {
-    lv_draw_img_dsc_t img_dsc;
-    lv_draw_img_dsc_init(&img_dsc);
+    lv_draw_image_dsc_t img_dsc;
+    lv_draw_image_dsc_init(&img_dsc);
 
-    lv_canvas_draw_img(canvas, 85, 143, &profiles, &img_dsc);
+    toucan_canvas_draw_img(canvas, 85, 143, &profiles, &img_dsc);
 }
 
 static void draw_active_profile(lv_obj_t *canvas, const struct status_state *state) {
@@ -17,7 +17,7 @@ static void draw_active_profile(lv_obj_t *canvas, const struct status_state *sta
 
     int offset = state->active_profile_index * 10;
 
-    lv_canvas_draw_rect(canvas, 85 + offset, 143, 8, 8, &rect_white_dsc);
+    toucan_canvas_draw_rect(canvas, 85 + offset, 143, 8, 8, &rect_white_dsc);
 }
 
 void draw_profile_status(lv_obj_t *canvas, const struct status_state *state) {
@@ -30,6 +30,6 @@ void draw_profile_status(lv_obj_t *canvas, const struct status_state *state) {
     if (name[0] != '\0') {
         lv_draw_label_dsc_t label_dsc;
         init_label_dsc(&label_dsc, LVGL_FOREGROUND, &quinquefive_8, LV_TEXT_ALIGN_LEFT);
-        lv_canvas_draw_text(canvas, 12, 120, 120, &label_dsc, (char *)name);
+        toucan_canvas_draw_text(canvas, 12, 120, 120, &label_dsc, (char *)name);
     }
 }
